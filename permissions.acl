@@ -1,10 +1,7 @@
 
-/**
- * Sample access control list.
- */
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "com.eternaltrusts.privatenetwork.SampleParticipant"
+    participant: "com.eternaltrusts.privatenetwork.EternalTrustsParticipant"
     operation: READ
     resource: "com.eternaltrusts.privatenetwork.*"
     action: ALLOW
@@ -12,17 +9,17 @@ rule EverybodyCanReadEverything {
 
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
-    participant: "com.eternaltrusts.privatenetwork.SampleParticipant"
+    participant: "com.eternaltrusts.privatenetwork.EternalTrustsParticipant"
     operation: CREATE
-    resource: "com.eternaltrusts.privatenetwork.SampleTransaction"
+    resource: "com.eternaltrusts.privatenetwork.EternalTrustsTransaction"
     action: ALLOW
 }
 
 rule OwnerHasFullAccessToTheirAssets {
     description: "Allow all participants full access to their assets"
-    participant(p): "com.eternaltrusts.privatenetwork.SampleParticipant"
+    participant(p): "com.eternaltrusts.privatenetwork.EternalTrustsParticipant"
     operation: ALL
-    resource(r): "com.eternaltrusts.privatenetwork.SampleAsset"
+    resource(r): "com.eternaltrusts.privatenetwork.EternalTrustsAsset"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }

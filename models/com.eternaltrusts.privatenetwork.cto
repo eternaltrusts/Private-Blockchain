@@ -7,19 +7,19 @@ participant EternalTrustsParticipant identified by participantId {
   o String lastName
 }
 
-asset Asset identified by assetId {
+asset EternalTrustsAsset identified by assetId {
   o String assetId
   --> EternalTrustsParticipant owner
   o String value
 }
 
-transaction Transaction {
-  --> Asset asset
+transaction EternalTrustsTransaction {
+  --> EternalTrustsAsset asset
   o String newValue
 }
 
-event Event {
-  --> Asset asset
+event EternalTrustsEvent {
+  --> EternalTrustsAsset asset
   o String oldValue
   o String newValue
-}
+} 
