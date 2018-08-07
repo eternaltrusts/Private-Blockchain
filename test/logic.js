@@ -1,7 +1,4 @@
 'use strict';
-/**
- * Write the unit tests for your transction processor functions here
- */
 
 const AdminConnection = require('composer-admin').AdminConnection;
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
@@ -13,9 +10,9 @@ chai.should();
 chai.use(require('chai-as-promised'));
 
 const namespace = 'com.eternaltrusts.privatenetwork';
-const assetType = 'SampleAsset';
+const assetType = 'EternalTrustsAsset';
 const assetNS = namespace + '.' + assetType;
-const participantType = 'SampleParticipant';
+const participantType = 'EternalTrustsParticipant';
 const participantNS = namespace + '.' + participantType;
 
 describe('#' + namespace, () => {
@@ -370,7 +367,7 @@ describe('#' + namespace, () => {
         await useIdentity(aliceCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'EternalTrustsTransaction');
         transaction.asset = factory.newRelationship(namespace, assetType, '1');
         transaction.newValue = '50';
         await businessNetworkConnection.submitTransaction(transaction);
@@ -398,7 +395,7 @@ describe('#' + namespace, () => {
         await useIdentity(aliceCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'EternalTrustsTransaction');
         transaction.asset = factory.newRelationship(namespace, assetType, '2');
         transaction.newValue = '50';
         businessNetworkConnection.submitTransaction(transaction).should.be.rejectedWith(/does not have .* access to resource/);
@@ -409,7 +406,7 @@ describe('#' + namespace, () => {
         await useIdentity(bobCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'EternalTrustsTransaction');
         transaction.asset = factory.newRelationship(namespace, assetType, '2');
         transaction.newValue = '60';
         await businessNetworkConnection.submitTransaction(transaction);
@@ -437,7 +434,7 @@ describe('#' + namespace, () => {
         await useIdentity(bobCardName);
 
         // Submit the transaction.
-        const transaction = factory.newTransaction(namespace, 'SampleTransaction');
+        const transaction = factory.newTransaction(namespace, 'EternalTrustsTransaction');
         transaction.asset = factory.newRelationship(namespace, assetType, '1');
         transaction.newValue = '60';
         businessNetworkConnection.submitTransaction(transaction).should.be.rejectedWith(/does not have .* access to resource/);
