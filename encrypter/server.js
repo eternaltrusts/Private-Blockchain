@@ -86,8 +86,6 @@ app.post('/decrypt', multipartMiddleware, function (req, resp) {
 
     resp.sendFile(decryptedFilename, { root: __dirname })
 
-
-
 });
 
 http.createServer(app).listen(3001);
