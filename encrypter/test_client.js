@@ -21,7 +21,7 @@ function encrypt(filename) {
 
     let source_file = fs.createReadStream(filename);
 
-    form.append('source_file', source_file);
+    form.append('sourceFile', source_file);
 
 }
 
@@ -44,7 +44,7 @@ function decrypt(filename) {
 
     let encrypted_file = fs.createReadStream(filename);
 
-    form.append('encrypted_file', encrypted_file);
+    form.append('encryptedFile', encrypted_file);
 }
 
 
