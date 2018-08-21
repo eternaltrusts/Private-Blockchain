@@ -1,5 +1,5 @@
 
-sudo ../fabric-dev-servers/startFabric.sh
+sudo fabric-dev-servers/startFabric.sh
 
 
 composer network install --card PeerAdmin@hlfv1 --archiveFile ../eternaltrusts-private-network@0.0.1.bna
