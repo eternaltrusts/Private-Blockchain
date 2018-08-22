@@ -22,6 +22,23 @@ const ALGORITHM = 'aes-256-cbc';
 
 const KEY = process.env.ETHERNAL_TRUSTS_KEY;
 
+const PORT = 3001;
+
+app.get('/', (req, res) => {
+
+    const URL = "http://188.116.40.21";
+
+    // const PORT = 3001;
+
+    const INFO = `<h1>Encrypter</h1>
+                    <p>Use POST request to encrypt/decrypt your data</p>
+                        <li>To encrypt: ${URL}:${PORT}/encrypt </li>
+                        <li>To decrypt: ${URL}:${PORT}/decrypt </li>`;
+
+    res.send(INFO);
+
+});
+
 app.get('/encrypt', (req, resp) => {
 
     resp.send('Use POST request to encrypt file')
@@ -37,8 +54,8 @@ app.post('/encrypt', multipartMiddleware, function (req, resp) {
 
     let originalFilename = req.files.sourceFile.originalFilename
 
-    var source = fs.createReadStream(path, {root: __dirname});
-    
+    var source = fs.createReadStream(path, { root: __dirname });
+
     let encryptedFilename = originalFilename + '.enc'
 
     let cipher = crypto.createCipher(ALGORITHM, KEY);
@@ -70,8 +87,8 @@ app.post('/decrypt', multipartMiddleware, function (req, resp) {
 
     let encryptedFilename = req.files.sourceFile.originalFilename
 
-    var encrypted = fs.createReadStream(path, {root: __dirname});
-    
+    var encrypted = fs.createReadStream(path, { root: __dirname });
+
     let decryptedFilename = encryptedFilename.replace('enc', '')
 
     let decipher = crypto.createDecipher(ALGORITHM, KEY);
@@ -88,42 +105,7 @@ app.post('/decrypt', multipartMiddleware, function (req, resp) {
 
 });
 
-http.createServer(app).listen(3001);
+http.createServer(app).listen(PORT, () => {
+    console.log('Encrypter is running...')
+});
 
-
-
-// var server = require('http').createServer();
-
-// var io = require('socket.io')(server);
-
-// io.on('connection', function (client) {
-
-//     client.on('event', function (data) {
-//         console.log(data);
-//      });
-//     client.on('disconnect', function () { 
-//         console.log('disconnect');
-//     });
-// });
-
-// server.listen(3000);
-
-// var http = require('http'),
-//     fileSystem = require('fs'),
-//     path = require('path');
-
-// http.createServer(function (request, response) {
-
-//     var filePath = path.join(__dirname, 'img.jpg');
-//     var stat = fileSystem.statSync(filePath);
-
-//     response.writeHead(200, {
-//         'Content-Type': 'image/jpg',
-//         'Content-Length': stat.size
-//     });
-
-//     var readStream = fileSystem.createReadStream(filePath);
-//     // We replaced all the event handlers with a simple call to readStream.pipe()
-//     readStream.pipe(response);
-
-// }).listen(2000);

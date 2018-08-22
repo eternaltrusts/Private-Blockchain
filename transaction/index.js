@@ -7,10 +7,28 @@ let request = require('request');
 
 let app = express()
 
+const URL = "http://188.116.40.21";
+
 const PORT = 3002;
 
-// const HIPERLEDGER_URL = 'http://localhost:3000/';
-const HIPERLEDGER_URL = 'http://localhost:3000/api/EternalTrustsTransaction';
+const HIPERLEDGER_URL = `${URL}:3000/api/EternalTrustsTransaction`;
+
+app.get('/', (req, res) => {
+
+    const MAIN_PAGE = `
+    <h1>Server is working</h1>
+
+    <li>Usage:</li>
+        ${URL}:${PORT}/transaction?startDate=[time]
+    
+    <li>Example to use:</li>
+    
+        ${URL}:${PORT}/transaction?startDate=2018-08-17T08:33:52.376Z
+    
+    `
+
+    res.send(MAIN_PAGE);
+});
 
 app.get('/transaction', (req, resClient) => {
 
@@ -49,18 +67,7 @@ app.get('/transaction', (req, resClient) => {
 });
 
 
-http.createServer(app).listen(PORT);
-
-
-// let time = '2018-08-10T09:37:23.149Z';
-// let time2 = '2018-08-10T09:37:25.149Z';
-
-// let date = new Date(time);
-// let date2 = new Date(time2);
-
-// console.log(date.getMonth())
-// console.log(date.getYear())
-// console.log(date.getHours())
-// console.log(date.getMinutes())
-// console.log(date.getSeconds())
+http.createServer(app).listen(PORT, () => {
+    console.log('Server is running');
+});
 
