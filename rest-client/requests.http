@@ -1,0 +1,40 @@
+###
+
+# GET http://localhost:3000/api/EternalTrustsAsset
+
+###
+
+# asset
+
+POST /EternalTrustsAsset
+
+GET /EternalTrustsAsset/{id}
+
+HEAD /EternalTrustsAsset/{id}
+
+PUT /EternalTrustsAsset/{id}
+
+DELETE /EternalTrustsAsset/{id}
+
+# participant
+
+GET /EternalTrustsParticipant
+
+POST /EternalTrustsParticipant
+
+GET /EternalTrustsParticipant/{id}
+
+HEAD /EternalTrustsParticipant/{id}
+
+PUT /EternalTrustsParticipant/{id}
+
+DELETE /EternalTrustsParticipant/{id}
+
+# transaction
+
+GET /EternalTrustsTransaction
+
+POST /EternalTrustsTransaction
+
+GET /EternalTrustsTransaction/{id}
+

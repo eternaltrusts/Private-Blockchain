@@ -27,6 +27,7 @@ const PORT = 3001;
 app.get('/', (req, res) => {
 
     const URL = "http://188.116.40.21";
+    // const URL = "http://127.0.0.1";
 
     // const PORT = 3001;
 
