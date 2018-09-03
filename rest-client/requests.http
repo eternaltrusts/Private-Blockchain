@@ -1,40 +1,86 @@
+
+# hyperledger
+@url = http://188.116.40.21:3000/api
 ###
 
-# GET http://localhost:3000/api/EternalTrustsAsset
+# eos
+# @url = http://188.116.40.21:18888
 
-###
+
+# hyperleder local
+# GET http://localhost:3000/api
 
 # asset
 
-POST /EternalTrustsAsset
+###
+GET {{url}}/EternalTrustsAsset/
 
-GET /EternalTrustsAsset/{id}
+###
+POST {{url}}/EternalTrustsAsset
+content-type: application/json
 
-HEAD /EternalTrustsAsset/{id}
+{
+  "$class": "com.eternaltrusts.privatenetwork.EternalTrustsAsset",
+  "assetId": "asset1",
+  "owner": "com.eternaltrusts.privatenetwork.EternalTrustsParticipant#id1",
+  "value": "111"
+}
 
-PUT /EternalTrustsAsset/{id}
 
-DELETE /EternalTrustsAsset/{id}
+###
+@asset_id = asset2
+GET {{url}}/EternalTrustsAsset/{{asset_id}}
+
+###
+HEAD {{url}}/EternalTrustsAsset/{{asset_id}}
+
+###
+PUT {{url}}/EternalTrustsAsset/{id}
+
+###
+DELETE {{url}}/EternalTrustsAsset/{id}
 
 # participant
 
-GET /EternalTrustsParticipant
+###
+GET {{url}}/EternalTrustsParticipant
 
-POST /EternalTrustsParticipant
+###
+POST {{url}}/EternalTrustsParticipant
+content-type: application/json
 
-GET /EternalTrustsParticipant/{id}
+{
+  "$class": "com.eternaltrusts.privatenetwork.EternalTrustsParticipant",
+  "participantId": "id1",
+  "firstName": "firstName1",
+  "lastName": "lastName1"
+}
 
-HEAD /EternalTrustsParticipant/{id}
+###
+GET {{url}}/EternalTrustsParticipant/{id}
 
-PUT /EternalTrustsParticipant/{id}
+###
+HEAD {{url}}/EternalTrustsParticipant/{id}
 
-DELETE /EternalTrustsParticipant/{id}
+###
+PUT {{url}}/EternalTrustsParticipant/{id}
+
+###
+DELETE {{url}}/EternalTrustsParticipant/{id}
 
 # transaction
 
-GET /EternalTrustsTransaction
+###
+GET {{url}}/EternalTrustsTransaction
 
-POST /EternalTrustsTransaction
+###
+POST {{url}}/EternalTrustsTransaction
+content-type: application/json
 
-GET /EternalTrustsTransaction/{id}
+###
+GET {{url}}/EternalTrustsTransaction/{id}
 
+
+###
+
+GET http://188.116.40.21:3000/api/EternalTrustsAsset
