@@ -1,0 +1,18 @@
+@url = http://188.116.40.21:3001
+
+
+###
+POST {{url}}/encrypt
+content-type: application/json
+
+{
+  "": ""
+}
+
+###
+POST {{url}}/decrypt 
+content-type: application/json
+
+{
+  "": ""
+}

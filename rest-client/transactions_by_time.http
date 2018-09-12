@@ -1,0 +1,6 @@
+
+###
+@url = http://188.116.40.21:3002
+
+@startDate = 2018-09-03T19:31:19.049Z
+GET {{url}}/transaction?startDate={{startDate}}

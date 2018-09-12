@@ -77,6 +77,12 @@ GET {{url}}/EternalTrustsTransaction
 POST {{url}}/EternalTrustsTransaction
 content-type: application/json
 
+{
+  "$class": "com.eternaltrusts.privatenetwork.EternalTrustsTransaction",
+  "asset": "com.eternaltrusts.privatenetwork.EternalTrustsAsset#asset1",
+  "newValue": "444"
+}
+
 ###
 GET {{url}}/EternalTrustsTransaction/{id}
 
